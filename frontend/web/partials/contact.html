@@ -1,0 +1,68 @@
+<div ng-show="flash" class="alert alert-{{ flash.class }}">
+    {{flash.message}}
+</div>
+<h1>Contact</h1>
+
+<p>
+    If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+</p>
+
+<div class="row">
+
+    <div class="col-lg-5">
+        <form ng-submit="contact()" id="contact-form" method="post" role="form" >
+
+            <div ng-class="{ 'has-success': !error['name'] && submitted,
+                'has-error': error['name'] && submitted }"
+                 class="form-group field-contactform-name required">
+                <label class="control-label" for="contactform-name">Name</label>
+                <input ng-model="contactModel.name" type="text" id="contactform-name" class="form-control">
+                <p class="help-block help-block-error">{{ error['name'] }}</p>
+            </div>
+
+            <div ng-class="{ 'has-success': !error['email'] && submitted,
+                'has-error': error['email'] && submitted }"
+                class="form-group field-contactform-email required">
+                <label class="control-label" for="contactform-email">Email</label>
+                <input ng-model="contactModel.email" type="text" id="contactform-email" class="form-control">
+                <p class="help-block help-block-error">{{ error['email'] }}</p>
+            </div>
+
+            <div ng-class="{ 'has-success': !error['email'] && submitted,
+                'has-error': error['email'] && submitted }"
+                class="form-group field-contactform-subject required">
+                <label class="control-label" for="contactform-subject">Subject</label>
+                <input ng-model="contactModel.subject" type="text" id="contactform-subject" class="form-control">
+                <p class="help-block help-block-error">{{ error['subject'] }}</p>
+            </div>
+
+            <div ng-class="{ 'has-success': !error['body'] && submitted,
+                'has-error': error['body'] && submitted }"
+                class="form-group field-contactform-body required">
+                <label class="control-label" for="contactform-body">Body</label>
+                <textarea ng-model="contactModel.body" id="contactform-body" class="form-control" rows="6"></textarea>
+                <p class="help-block help-block-error">{{ error['body'] }}</p>
+            </div>
+
+            <div ng-class="{ 'has-success': !error['verifyCode'] && submitted,
+                'has-error': error['verifyCode'] && submitted }"
+                class="form-group field-contactform-verifycode">
+                <label class="control-label" for="contactform-verifycode">Verification Code</label>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img ng-click="refreshCaptcha()" ng-src="{{captchaUrl}}" id="contactform-verifycode-image" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                        <input ng-model="contactModel.verifyCode" type="text" id="contactform-verifycode" class="form-control" name="">
+                    </div>
+                </div>
+                <p class="help-block help-block-error">{{ error['verifyCode'] }}</p>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" name="contact-button">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

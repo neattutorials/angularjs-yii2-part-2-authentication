@@ -1,0 +1,30 @@
+<h1>Login</h1>
+
+<p>Please fill out the following fields to login:</p>
+
+<div class="row">
+    <div class="col-lg-5">
+        <form ng-submit="login()" name="loginForm" id="login-form" method="post" role="form" >
+            <div ng-class="{ 'has-success': !error['username'] && submitted,
+                'has-error': error['username'] && submitted }"
+                 class="form-group field-loginform-username required">
+                <label class="control-label" for="loginform-username">Username(demo)</label>
+                <input ng-model="userModel.username" type="text" id="loginform-username" class="form-control">
+                <p class="help-block help-block-error">{{ error['username'] }}</p>
+            </div>
+
+            <div ng-class="{ 'has-success': !error['password'] && submitted,
+                'has-error': error['password'] && submitted }"
+                 class="form-group field-loginform-password required">
+                <label class="control-label" for="loginform-password">Password(demo)s</label>
+                <input ng-model="userModel.password" type="password" id="loginform-password" class="form-control">
+                <p class="help-block help-block-error">{{ error['password'] }}</p>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" name="login-button">Login</button>
+            </div>
+
+        </form>
+    </div>
+</div>
