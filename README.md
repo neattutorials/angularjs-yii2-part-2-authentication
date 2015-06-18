@@ -3,7 +3,7 @@ Yii2 Pjax Examples
 
 If you're planning on running these on your server don't forget to:
 ~~~
-php composer.phar update
+php composer.phar install
 ~~~
 and initialize the environment
 ~~~
