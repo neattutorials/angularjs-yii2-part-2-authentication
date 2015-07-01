@@ -1,4 +1,4 @@
-Yii2 Pjax Examples
+AngularJS and Yii2 Part 2: Authentication
 ================================
 
 If you're planning on running these on your server don't forget to:
